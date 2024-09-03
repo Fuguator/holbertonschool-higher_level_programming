@@ -1,6 +1,6 @@
 #!/usr/bin/python3
 for x in range(0, 100):
     if x < 10:
-        print("0" + f"{x}" + ", " + "")
+        print("0" + "{}".format(str(x)) + ", ", end = "")
     else:
-        print(", " + f"{x}" + "")
+        print(", " + "{}".format(str(x)), end = "")
