@@ -1,11 +1,16 @@
 #!/usr/bin/python3
 def fizzbuzz():
-    for x in range(0, 101):
+    output = []
+    for x in range(1, 101):
         if x % 3 == 0 and x % 5 == 0:
-            print("FizzBuzz , ")
+            output.append("FizzBuzz")
         elif x % 3 == 0:
-            print("Fizz , ")
+            output.append("Fizz")
         elif x % 5 == 0:
-            print("Buzz , ")
+            output.append("Buzz")
         else:
-            print(", ", x)
+            output.append(str(x))
+    print(" ".join(output))
+
+
+fizzbuzz()
