@@ -12,5 +12,3 @@ def fizzbuzz():
             output.append(str(x))
     print(" ".join(output))
 
-
-fizzbuzz()
