@@ -11,4 +11,3 @@ def fizzbuzz():
         else:
             output.append(str(x))
     print(" ".join(output), end=' ')
-
