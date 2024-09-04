@@ -4,4 +4,7 @@ if __name__ == '__main__':
     count = len(sys.argv)
     print(f"{count} arguments:")
     for x in range(count):
-        print(f"{x + 1}: {sys.argv[x + 1]}")
+        if x == 0:
+            continue
+        else:
+            print(f"{x}: {sys.argv[x]}")
