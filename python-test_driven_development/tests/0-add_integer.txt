@@ -24,3 +24,10 @@ Traceback (most recent call last):
 OverflowError: cannot convert float infinity to integer
 >>> add_integer(2)
 100
+>>> math = __import__("math")
+>>> add_integer(2, math.nan)
+Traceback (most recent call last):
+  File "./0-add_integer.py", line 18, in add_integer
+    b = int(b)
+        ^^^^^^
+ValueError: cannot convert float NaN to integer
