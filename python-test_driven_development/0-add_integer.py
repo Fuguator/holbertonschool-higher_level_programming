@@ -1,8 +1,8 @@
 #!/usr/bin/python3
 """returns a sum"""
 
-def add_integer(a, b=98):
 
+def add_integer(a, b=98):
     """takes a sum of a and b"""
 
     if not isinstance(a, (int, float)):
