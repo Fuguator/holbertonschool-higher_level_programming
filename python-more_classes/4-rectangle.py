@@ -45,5 +45,5 @@ class Rectangle:
     
     def __repr__(self) -> str:
         """prints 'Rechangle(width, height)' """
-        x = "Rectangle(" str(self.__width) + ", " + str(self.__height) + ")"
+        x = "Rectangle(" + str(self.__width) + ", " + str(self.__height) + ")"
         return x
