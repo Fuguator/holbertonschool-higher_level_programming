@@ -50,6 +50,6 @@ class Rectangle:
         return x
 
     def __del__(self):
-        print("Bye rectangle...")
         number_of_instances -= 1
+        print("Bye rectangle...")
 
