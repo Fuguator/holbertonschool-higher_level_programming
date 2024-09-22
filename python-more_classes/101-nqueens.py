@@ -1,5 +1,5 @@
 #!/usr/bin/python3
-""" 
+"""
     Placing N non-attacking queens on an NN chessboard
     this article: https://dev.to/ajipelumi/solve-n-queens-with-python-554
     really helped me
@@ -16,6 +16,7 @@ def result():
             if board[row][col] == 1:
                 matrix[row][1] = col
     return matrix
+
 
 def backtrack(r, n, col, posDiag, negDiag):
     global board
@@ -53,6 +54,7 @@ def solve_n_queens(n):
     board = [[0 for i in range(n)] for i in range(n)]
 
     backtrack(0, n, col, posDiag, negDiag)
+
 
 if len(sys.argv) != 2:
     print("Usage: nqueens N")
