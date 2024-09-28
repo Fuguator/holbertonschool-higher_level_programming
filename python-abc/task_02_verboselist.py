@@ -1,7 +1,6 @@
 #!/usr/bin/env python3
-""""""
+"""VerboseList"""
 from abc import ABC, abstractmethod
-from typing import Iterable, SupportsIndex
 
 
 class VerboseList(list):
