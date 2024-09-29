@@ -1,10 +1,10 @@
 #!/usr/bin/python3
-"""Add attribute"""
+"""add_attribute"""
 
 
-def add_atribute(obj, name: str, value: str):
-    """Add attribute"""
+def add_attribute(obj, name: str, val: str):
+    """add_attribute"""
 
     if not hasattr(obj, "__dict__"):
         raise TypeError("can't add new attribute")
-    return setattr(obj, name, value)
+    return setattr(obj, name, val)
