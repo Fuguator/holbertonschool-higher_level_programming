@@ -1,9 +1,8 @@
 #!/usr/bin/env python3
-"""ountedIterator"""
-from abc import ABC, abstractmethod
+"""CountedIterator"""
 
 
-class CountedIterator(iter):
+class CountedIterator:
     """CountedIterator"""
     def __init__(self, iter_obj):
         self.iter_obj = iter(iter_obj)
@@ -11,7 +10,7 @@ class CountedIterator(iter):
 
     def __next__(self):
         try:
-            item = next(self.iterator)
+            item = next(self.iter_obj)
             self.count += 1
             return item
 
