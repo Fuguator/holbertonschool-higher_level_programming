@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 from abc import ABC, abstractmethod
-""""""
+"""Dragon"""
 
 
 class SwimMixin:
@@ -11,6 +11,6 @@ class FlyMixin:
     def fly(self):
         print("The creature flies!")
 
-def Dragon(SwimMixin, FlyMixin):
+class Dragon(SwimMixin, FlyMixin):
     def roar(self):
         print("The dragon roars!")
