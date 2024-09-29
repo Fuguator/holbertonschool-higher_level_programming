@@ -4,6 +4,7 @@ from abc import ABC, abstractmethod
 
 
 class CountedIterator(iter):
+    """CountedIterator"""
     def __init__(self, iter_obj):
         self.iter_obj = iter(iter_obj)
         self.count = 0
@@ -13,6 +14,7 @@ class CountedIterator(iter):
             item = next(self.iterator)
             self.count += 1
             return item
+
         except StopIteration:
             raise StopIteration
 
