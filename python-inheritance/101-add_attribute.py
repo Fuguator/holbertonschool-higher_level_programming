@@ -2,7 +2,7 @@
 """Add attribute"""
 
 
-def func(obj, name, value):
+def add_atribute(obj, name, value):
     """Add attribute"""
 
     if not hasattr(obj, "__dict__"):
