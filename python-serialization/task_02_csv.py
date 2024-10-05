@@ -4,16 +4,14 @@ import csv
 import json
 
 
-def convert_csv_to_json(csvFilePath, jsonFilePath):
+def convert_csv_to_json(filename):
+    try:
+        with open(filename, 'r') as file:
+            csv_read = csv.DictReader(file)
+            data = [row for row in csv_read]
+            
+        with open('data.json', 'w') as jsonfile:
+            json.dump(data, jsonfile)
 
-    data = {}
-
-    with open(csvFilePath, encoding='utf-8') as csvf:
-        csvReader = csv.DictReader(csvf)
-
-        for rows in csvReader:
-            key = rows['No']
-            data[key] = rows
-
-    with open(jsonFilePath, 'w', encoding='utf-8') as jsonf:
-        jsonf.write(json.dumps(data, indent=4))
+    except FileNotFoundError as x:
+        print(f"Error: {x}")
