@@ -26,3 +26,5 @@ class CustomObject:
                 return student
         except FileNotFoundError:
             print(f"file {filename} not found")
+        except Exception as x:
+            print(f"deserialization error: {x}")
