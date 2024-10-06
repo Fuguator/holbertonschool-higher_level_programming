@@ -3,6 +3,7 @@
 
 
 def append_after(filename="", search_string="", new_string=""):
+    """Search and update"""
     with open(filename, 'r') as file:
         lines = file.readlines()
 
