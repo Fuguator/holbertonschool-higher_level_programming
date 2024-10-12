@@ -4,10 +4,7 @@ from flask import Flask, jsonify, request
 
 app = Flask(__name__)
 
-users = {
-    "jane": {"username": "jane", "name": "Jane", "age": 28, "city": "Los Angeles"}, 
-    "john": {"username": "john", "name": "John", "age": 30, "city": "New York"}
-    }
+users = {}
 # write this script in the new terminal to add new user:
 # curl -X POST http://localhost:5000/add_user -H "Content-Type: application/json" -d '{"username": "alice", "name": "Alice", "age": 25, "city": "San Francisco"}'
 
