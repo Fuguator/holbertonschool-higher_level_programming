@@ -29,7 +29,6 @@ def basic_protected():
     return "Basic Auth: Access Granted"
 
 @app.route('/login', methods=['POST'])
-@jwt_required()
 def login():
     username = request.json.get("username", None)
     password = request.json.get("password", None)
@@ -44,7 +43,7 @@ def login():
     else:
         return "Error: 401 Unauthorized", 401
 
-@app.route('/basic-protected', methods=['GET'])
+@app.route('/jwt-protected', methods=['GET'])
 @jwt_required()
 def func():
     return "JWT Auth: Access Granted"
