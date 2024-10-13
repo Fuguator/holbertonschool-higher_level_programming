@@ -41,7 +41,7 @@ def login():
         access_token = create_access_token(identity=username)
         return jsonify(access_token=access_token)
     else:
-        return "Error: 401 Unauthorized", 401
+        return jsonify({"error": "Invalid credentials"}), 401
 
 @app.route('/jwt-protected', methods=['GET'])
 @jwt_required()
@@ -55,7 +55,7 @@ def admin_only():
     if user_role['role'] == 'admin':
         return "Admin Access: Granted"
     else:
-        return "Error: 403 Forbidden", 403
+        return jsonify({"error": "Admin access required"}), 403
 
 @jwt.unauthorized_loader
 def handle_unauthorized_error(err):
