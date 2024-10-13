@@ -51,7 +51,8 @@ def func():
 @app.route('/admin-only', methods=['GET'])
 @jwt_required()
 def admin_only():
-    if get_jwt_identity['role'] == 'admin':
+    user_role = get_jwt_identity()
+    if user_role['role'] == 'admin':
         return "Admin Access: Granted"
     else:
         return "Error: 403 Forbidden", 403
