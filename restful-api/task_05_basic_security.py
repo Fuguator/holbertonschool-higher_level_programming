@@ -16,6 +16,8 @@ auth = HTTPBasicAuth()
 users = {
     "admin": {"password": generate_password_hash("adminpass"), "role": "admin"},
     "regular_user": {"password": generate_password_hash("userpass"), "role": "user"}
+    "user1": {"username": "user1", "password": "<hashed_password>", "role": "user"},
+    "admin1": {"username": "admin1", "password": "<hashed_password>", "role": "admin"}
 }
 
 
