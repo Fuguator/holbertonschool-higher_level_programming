@@ -1,5 +1,5 @@
 --
-CREATE TABLE second_table(
+CREATE TABLE second_table IF NOT EXISTS(
 	id INT,
 	name VARCHAR(256),
 	score INT
