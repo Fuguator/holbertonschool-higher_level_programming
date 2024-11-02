@@ -1,10 +1,11 @@
 #!/usr/bin/python3
 """Get all states"""
-from sys import argv
-import MySQLdb
 
 
 if __name__ == "__main__":
+    from sys import argv
+    import MySQLdb
+
     db = MySQLdb.connect(
         user = argv[1],
         password = argv[2],
