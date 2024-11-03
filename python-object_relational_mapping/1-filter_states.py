@@ -1,27 +1,35 @@
 #!/usr/bin/python3
 """
-Connecting to database and listing words which start with uppercase N.
+Connecting to a database and listing words which start with uppercase N.
 """
 
-import MySQLdb
+from sqlalchemy import create_engine, Column, Integer, String
+from sqlalchemy.ext.declarative import declarative_base
+from sqlalchemy.orm import sessionmaker
 from sys import argv
 
+Base = declarative_base()
+
+class State(Base):
+    """State model for the states table."""
+    __tablename__ = 'states'
+
+    id = Column(Integer, primary_key=True)
+    name = Column(String(128))
+
 if __name__ == "__main__":
-    db = MySQLdb.connect(
-        host="localhost",
-        port=3306,
-        user=argv[1],
-        passwd=argv[2],
-        db=argv[3]
-    )
-    mycursor = db.cursor()
 
+    engine = create_engine(f'mysql+mysqldb://{argv[1]}:{argv[2]}@localhost/{argv[3]}')
+
+    Session = sessionmaker(bind=engine)
+
+    session = Session()
     try:
-        mycursor.execute("SELECT * FROM states ORDER BY id")
-        rows = mycursor.fetchall()
-    except MySQLdb.Error as e:
+        results = session.query(State).filter(State.name.like('N%')).order_by(State.id).all()
+    except Exception as e:
         print(e)
+    else:
+        for state in results:
+            print(state.id, state.name)
 
-    for row in rows:
-        if row[1][0] == 'N':
-            print(row)
+    session.close()
