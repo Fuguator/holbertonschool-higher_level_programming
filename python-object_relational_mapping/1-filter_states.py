@@ -1,10 +1,12 @@
 #!/usr/bin/python3
-"""Module for listing states that start with 'N' from the database `hbtn_0e_0_usa`."""
+"""
+Connecting to database and listing words which start with uppercase N.
+"""
+
+import MySQLdb
+from sys import argv
 
 if __name__ == "__main__":
-    from sys import argv
-    import MySQLdb
-
     db = MySQLdb.connect(
         host="localhost",
         port=3306,
@@ -12,13 +14,14 @@ if __name__ == "__main__":
         passwd=argv[2],
         db=argv[3]
     )
-    
-    cursor = db.cursor()
-    
-    cursor.execute("SELECT * FROM states WHERE name LIKE BINARY 'N%' ORDER BY id ASC")
-    
-    for state in cursor.fetchall():
-        print(state)
+    mycursor = db.cursor()
 
-    cursor.close()
-    db.close()
+    try:
+        mycursor.execute("SELECT * FROM states ORDER BY id")
+        rows = mycursor.fetchall()
+    except MySQLdb.Error as e:
+        print(e)
+
+    for row in rows:
+        if row[1][0] == 'N':
+            print(row)
