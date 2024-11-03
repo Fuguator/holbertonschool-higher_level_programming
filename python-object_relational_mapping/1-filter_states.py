@@ -1,5 +1,5 @@
 #!/usr/bin/python3
-"""Module for listing states with names starting with 'N' in the database `hbtn_0e_0_usa`."""
+"""Module for listing states that start with 'N' from the database `hbtn_0e_0_usa`."""
 
 if __name__ == "__main__":
     from sys import argv
@@ -12,9 +12,11 @@ if __name__ == "__main__":
         passwd=argv[2],
         db=argv[3]
     )
+    
     cursor = db.cursor()
+    
     cursor.execute("SELECT * FROM states WHERE name LIKE BINARY 'N%' ORDER BY id ASC")
-
+    
     for state in cursor.fetchall():
         print(state)
 
