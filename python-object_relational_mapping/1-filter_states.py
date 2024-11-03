@@ -1,7 +1,5 @@
 #!/usr/bin/python3
-"""
-Connecting to database and listing words which start with uppercase N.
-"""
+"""Connecting to database and listing words which start with uppercase N."""
 
 import MySQLdb
 from sys import argv
