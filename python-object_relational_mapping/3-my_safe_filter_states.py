@@ -1,5 +1,7 @@
 #!/usr/bin/python3
-"""SQL Injection..."""
+"""
+Connecting to database and listing it
+"""
 
 if __name__ == "__main__":
     import MySQLdb
