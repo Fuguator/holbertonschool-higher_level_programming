@@ -2,6 +2,7 @@
 """salam"""
 
 if __name__ == "__main__":
+    """salam"""
     import MySQLdb
     import sys
 
