@@ -4,11 +4,11 @@
 if __name__ == "__main__":
     """salam"""
     import MySQLdb
-    import sys
+    from sys import argv
 
-    username = sys.argv[1]
-    password = sys.argv[2]
-    db_name = sys.argv[3]
+    username = argv[1]
+    password = argv[2]
+    db_name = argv[3]
 
     db = MySQLdb.connect(host="localhost", port=3306, user=username, passwd=password, db=db_name)
     cur = db.cursor()
