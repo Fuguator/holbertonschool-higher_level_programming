@@ -14,18 +14,15 @@ if __name__ == "__main__":
                            .format(argv[1], argv[2], argv[3]))
 
     Base.metadata.create_all(engine)
-
     Session = sessionmaker(bind=engine)
     session = Session()
 
     query = (
         session.query(State, City)
         .join(City, State.id == City.state_id)
-        .order_by(City.id)
-        .all())
+        .order_by(City.id).all())
 
     for state, city in query:
         print("{}: ({}) {}".format(state.name, city.id, city.name))
 
-    if session:
-        session.close()
+    session.close()
