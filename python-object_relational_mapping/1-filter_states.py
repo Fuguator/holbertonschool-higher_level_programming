@@ -1,5 +1,7 @@
 #!/usr/bin/python3
-"""Connecting to database and listing words which start with uppercase N."""
+"""
+Connecting to database and listing words which start with uppercase N.
+"""
 
 import MySQLdb
 from sys import argv
@@ -23,5 +25,3 @@ if __name__ == "__main__":
     for row in rows:
         if row[1][0] == 'N':
             print(row)
-    mycursor.close()
-    db.close()
