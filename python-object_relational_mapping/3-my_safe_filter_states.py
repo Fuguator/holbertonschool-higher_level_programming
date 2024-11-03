@@ -12,7 +12,9 @@ if __name__ == "__main__":
             passwd=argv[2],
             db=argv[3]
     )
+
     mycursor = db.cursor()
+
     try:
         mycursor.execute("SELECT * FROM states")
     except MySQLdb.Error as e:
