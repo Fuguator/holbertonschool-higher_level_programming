@@ -62,31 +62,33 @@ def sqlite_reader():
 def products():
     source = request.args.get('source')
     id = request.args.get('id')
-    file_path = ''
+    products = []
 
     if source == 'csv':
         file_path = 'products.csv'
+        if os.path.exists(file_path):
+            products = read_csv(file_path)
+        else:
+            return render_template('product_display.html', error='File not exists')
     elif source == 'json':
         file_path = 'products.json'
+        if os.path.exists(file_path):
+            products = read_json(file_path)
+        else:
+            return render_template('product_display.html', error='File not exists')
     elif source == 'sql':
         products = sqlite_reader()
     else:
         return render_template('product_display.html', error="Wrong source")
-    
-    if not os.path.exists(file_path) and source != 'sql':
-        return render_template('product_display.html', error = 'File not exists')
-    
-    if source == 'json':
-        products = read_json(file_path)
-    else:
-        products = read_csv(file_path)
-    
+
     if id:
         id = int(id)
         products = [product for product in products if product['id'] == id]
         if not products:
             return render_template('product_display.html', error="Product not found")
+    
     return render_template('product_display.html', products=products)
+
 
 
 if __name__ == '__main__':
