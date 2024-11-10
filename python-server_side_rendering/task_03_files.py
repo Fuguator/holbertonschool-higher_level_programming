@@ -63,7 +63,7 @@ def products():
         id = int(id)
         products = [product for product in products if product['id'] == id]
         if not products:
-            return render_template('product_display.html')
+            return render_template('product_display.html', error="Product not found")
     return render_template('product_display.html', products=products)
 
 if __name__ == '__main__':
