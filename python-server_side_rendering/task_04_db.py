@@ -39,6 +39,25 @@ def read_csv(file_path):
             products.append(data)
     return products
 
+def sqlite_reader():
+    conn = sqlite3.connect('products.db')
+    cursor = conn.cursor()
+    cursor.execute('SELECT * FROM Products')
+    rows = cursor.fetchall()
+    conn.close()
+
+    products = []
+    for row in rows:
+        product = {
+            'id': row[0],
+            'name': row[1],
+            'category': row[2],
+            'price': row[3]
+        }
+        products.append(product)
+    print(products)
+    return products
+
 @app.route('/products')
 def products():
     source = request.args.get('source')
@@ -69,24 +88,6 @@ def products():
             return render_template('product_display.html', error="Product not found")
     return render_template('product_display.html', products=products)
 
-def sqlite_reader():
-    conn = sqlite3.connect('products.db')
-    cursor = conn.cursor()
-    cursor.execute('SELECT * FROM Products')
-    rows = cursor.fetchall()
-    conn.close()
-
-    products = []
-    for row in rows:
-        product = {
-            'id': row[0],
-            'name': row[1],
-            'category': row[2],
-            'price': row[3]
-        }
-        products.append(product)
-    print(products)
-    return products
 
 if __name__ == '__main__':
     app.run(debug=True, port=5000)
