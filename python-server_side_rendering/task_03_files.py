@@ -52,7 +52,7 @@ def products():
         return render_template('product_display.html', error="Wrong source")
     
     if not os.path.exists(file_path):
-        return render_template('product_display.html')
+        return render_template('product_display.html', error = 'File not exists')
     
     if source == 'json':
         products = read_json(file_path)
