@@ -49,7 +49,7 @@ def products():
     elif source == 'json':
         file_path = 'products.json'
     else:
-        return render_template('product_display.html')
+        return render_template('product_display.html', error="Wrong source")
     
     if not os.path.exists(file_path):
         return render_template('product_display.html')
